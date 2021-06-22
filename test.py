@@ -1,5 +1,5 @@
 import OIL.tools as tools
-from OIL.color import Color
+from OIL.color import Color, cGREEN
 from OIL.label import Label
 
 """ Image Tools """
@@ -24,6 +24,8 @@ red = Color(255, 0, 0)
 
 print(red)
 print(red.rgb)
+
+print(cGREEN)   # You can use built in color codes
 
 """ Labels """
 

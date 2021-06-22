@@ -10,3 +10,9 @@ class Color():
     @property
     def rgb(self):
         return (self.r, self.g, self.b)
+
+cRED = Color(255, 0, 0)
+cGREEN = Color(0, 255, 0)
+cBLUE = Color(0, 0, 255)
+cWHITE = Color(255, 255, 255)
+cBLACK = Color(0, 0, 0)
