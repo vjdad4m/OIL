@@ -1,10 +1,11 @@
 import pygame
-from OILEditor.ui import *
+from OILEditor import ui
 import OIL as oil
-
 pygame.init()
+
 FPS = 30
 fpsClock = pygame.time.Clock()
+
 
 width = 720
 height = 720
@@ -14,9 +15,13 @@ wasClick = False
 
 screen = pygame.display.set_mode(res)
 
-# x = Button(screen, oil.color.cRED.rgb, [0,0,100,100])
+# x = ui.Button(screen, oil.color.cRED.rgb, [0,0,100,100])
 p = [oil.color.cGREEN.rgb, oil.color.cGREEN.rgb,oil.color.cGREEN.rgb, oil.color.cRED.rgb, oil.color.cWHITE.rgb]
-palette_btns = GeneratePalette(screen, p, 40)
+palette_btns = ui.GeneratePalette(screen, p, 40)
+currentColor = None
+
+c = ui.Canvas(screen, 255, resolution=2)
+c.pixels[10][10] = oil.color.cRED.rgb
 
 wasClick = False
 while True:
@@ -31,5 +36,7 @@ while True:
             if button.isClicked(click_pos):
                 print(f'Button id:{button.data} was clicked.')
         wasClick = False
+
+    c.update()
     pygame.display.update()
     fpsClock.tick(FPS)
