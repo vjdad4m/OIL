@@ -5,7 +5,7 @@ from PIL import Image
 def OpenImage(filename):
     img = Image.open(filename)
     img = np.array(img)
-    img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
+    img = BGR2RGB(img)
     return img
 
 def ShowImage(image, win_name = 'CV2Image'):
@@ -20,6 +20,10 @@ def ShowImage(image, win_name = 'CV2Image'):
 
 def RGB2Gray(image):
     img = cv2.cvtColor(image, cv2.COLOR_RGB2GRAY)
+    return img
+
+def BGR2RGB(image):
+    img = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
     return img
 
 def Resize(image, new_w, new_h):

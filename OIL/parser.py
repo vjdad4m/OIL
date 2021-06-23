@@ -1,6 +1,8 @@
 from OIL.errors import *
 from OIL.color import Color, cWHITE
 from OIL.label import Label
+from OIL.tools import BGR2RGB
+import numpy as np
 
 def LoadOIL(filename):
     data = []
@@ -56,3 +58,31 @@ def ParseOIL(data):
             raise OILFormatError(f"Invalid size data: {len(i)} != {width}")
     
     return parsed_data
+
+def ParseToPalette(data):
+    # Input data is returned from ParseOIL()
+    palette = {'0': cWHITE.rgb}
+    for c in data['labels']:
+        palette[c.name] = c.color.rgb
+    return palette
+
+def ParseToImage(data):
+    try:
+        palette = ParseToPalette(data)
+        width, height = data['size']
+        img = np.zeros((width, height, 3))
+        for y in range(height):
+            for x in range(width):
+                img[y][x] = palette[data['image'][y][x]]
+        img = np.float32(img)
+        img = BGR2RGB(img)
+        return img
+    except:
+        raise ImageParseError
+    return None
+
+def OILToImage(filename):
+    data = LoadOIL(filename)
+    data = ParseOIL(data)
+    data = ParseToImage(data)
+    return data

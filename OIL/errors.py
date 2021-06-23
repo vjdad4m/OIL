@@ -14,3 +14,8 @@ class OILParseError(Exception):
     def __init__(self) -> None:
         message = "Parsing Error"
         super().__init__(message)
+
+class ImageParseError(Exception):
+    def __init__(self) -> None:
+        message = "Error while parsing image"
+        super().__init__(message)

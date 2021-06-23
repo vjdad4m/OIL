@@ -1,7 +1,7 @@
 import OIL.tools as tools
 from OIL.color import Color, cGREEN
 from OIL.label import Label
-from OIL.parser import LoadOIL, ParseOIL
+from OIL.parser import LoadOIL, ParseOIL, ParseToImage, OILToImage
 from OIL.errors import *
 
 """ Image Tools """
@@ -40,20 +40,30 @@ from OIL.errors import *
 
 """ Parser """
 
+"""
 try:
     LoadOIL('asd')
 except OILFileLoadError:
     print('File Load error') # This should happen, as 'asd' does not exist
+"""
 
-data = LoadOIL('./images/labels/image.oil')
-print('before parsing: ')
-print(data)
+# Use theese to load OIL step-by-step:
 
-print()
-print()
+# data = LoadOIL('./images/labels/image.oil')
+# print('before parsing: ')
+# print(data)
 
-parsed = ParseOIL(data)
-print('Parsed: ')
-print(parsed)
+# parsed = ParseOIL(data)
+# print('Parsed: ')
+# print(parsed)
 
-# TODO: Implement method to convert parsed data to image data
+# image = ParseToImage(parsed)
+# print(image)
+# tools.ShowImage(image)
+
+# Use only to display, as other data is not loaded by this function:
+
+file_name = './images/labels/image.oil'
+img = OILToImage(file_name)
+
+tools.ShowImage(img)

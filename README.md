@@ -21,10 +21,10 @@ You can load your own image, define your custom labels e.g: foreground, backgrou
 
 </b>
 
-* Image manipulation tools
-* Custom file to store label data (label files)
 * Easy-to-use label file loader
 * Labeling GUI
+* Better Implementations of already existing functions
+* OIL file specific label data extraction
 
 Check ./test.py to see most recent features in action.
 
