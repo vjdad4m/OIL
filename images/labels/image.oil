@@ -6,6 +6,7 @@
 # Do not name a label 0, as 0 is the default filler value with cWHITE
 # This format makes the label file not much larger, than a reguler image size (if any larger)
 
+# w  h  -> w = width, h = height
 D 10 10
 L 'r' 255 0 0
 L 'g' 0 255 0

@@ -1,21 +1,21 @@
 import OIL.tools as tools
 from OIL.color import Color, cGREEN
 from OIL.label import Label
-from OIL.parser import LoadOIL
+from OIL.parser import LoadOIL, ParseOIL
 from OIL.errors import *
 
 """ Image Tools """
 
 # Image from @vajdaad4m on instagram
-i = tools.OpenImage('images/image.jpg')
+# i = tools.OpenImage('images/image.jpg')
 
 # Color conversion
-i = tools.RGB2Gray(i)
+# i = tools.RGB2Gray(i)
 
 # Resizing
-print('Size before resize:', i.shape)
-i = tools.Resize(i, 512, 512)
-print('Size after resize:', i.shape)
+# print('Size before resize:', i.shape)
+# i = tools.Resize(i, 512, 512)
+# print('Size after resize:', i.shape)
 
 # Display the image using opencv2
 # tools.ShowImage(i)
@@ -23,20 +23,20 @@ print('Size after resize:', i.shape)
 
 """ Colors """
 
-red = Color(255, 0, 0)
+# red = Color(255, 0, 0)
 
-print(red)
-print(red.rgb)
+# print(red)
+# print(red.rgb)
 
-print(cGREEN)   # You can use built in color codes
+# print(cGREEN)   # You can use built in color codes
 
 """ Labels """
 
-lane = Label('lane', red)
+# l1 = Label('lane', red)
 
-print(lane)
-print(lane.name)
-print(lane.color)
+# print(l1)
+# print(l1.name)
+# print(l1.color)
 
 """ Parser """
 
@@ -46,4 +46,14 @@ except OILFileLoadError:
     print('File Load error') # This should happen, as 'asd' does not exist
 
 data = LoadOIL('./images/labels/image.oil')
+print('before parsing: ')
 print(data)
+
+print()
+print()
+
+parsed = ParseOIL(data)
+print('Parsed: ')
+print(parsed)
+
+# TODO: Implement method to convert parsed data to image data
