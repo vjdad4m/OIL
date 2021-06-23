@@ -13,7 +13,7 @@ setup(name='OIL',
     author='Adam Vajda',
     license='MIT',
     long_description=long_description,
-    packages=['OIL'],
+    packages=['OIL', 'OILEditor'],
     classifiers=[
         "Programming Language :: Python :: 3",
         "License :: OSI Approved :: MIT License"

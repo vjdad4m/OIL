@@ -14,7 +14,7 @@ class Color():
 cRED = Color(255, 0, 0)
 cGREEN = Color(0, 255, 0)
 cBLUE = Color(0, 0, 255)
-cBLACK = Color(0, 0, 0)
 
-# NOTE: Do not use cWHITE in labels, as this color will be used to fill the blanks
+# NOTE: Do not use cWHITE and cBLACK in labels, as theese colors will be used to fill the blanks
 cWHITE = Color(255, 255, 255)
+cBLACK = Color(0, 0, 0)
