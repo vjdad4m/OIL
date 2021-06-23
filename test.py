@@ -1,7 +1,7 @@
 import OIL.tools as tools
 from OIL.color import Color, cGREEN
-from OIL.label import Label
-from OIL.parser import LoadOIL, ParseOIL, ParseToImage, OILToImage
+from OIL.label import Label, PaletteToLabel
+from OIL.parser import *
 from OIL.errors import *
 
 """ Image Tools """
@@ -40,6 +40,8 @@ from OIL.errors import *
 
 """ Parser """
 
+file_name = './images/labels/image.oil'
+
 """
 try:
     LoadOIL('asd')
@@ -63,7 +65,16 @@ except OILFileLoadError:
 
 # Use only to display, as other data is not loaded by this function:
 
-file_name = './images/labels/image.oil'
-img = OILToImage(file_name)
+# img = OILToImage(file_name)
+# tools.ShowImage(img)
 
-tools.ShowImage(img)
+# Use this to extract specific label:
+
+parse_data = ParseOIL(LoadOIL(file_name))
+palette = ParseToPalette(parse_data)
+print(palette)
+labels = PaletteToLabel(palette)
+l = labels[2] # Extract only green
+data = ExtractSpecificLabel(parse_data, l)
+print(data)
+tools.ShowImage(data)

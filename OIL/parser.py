@@ -86,3 +86,24 @@ def OILToImage(filename):
     data = ParseOIL(data)
     data = ParseToImage(data)
     return data
+
+def ExtractSpecificLabel(parse, label):
+    # Input is a parse and a specific label
+    try:
+        palette = ParseToPalette(parse)
+        width, height = parse['size']
+        img = np.zeros((width, height, 3))
+        for y in range(height):
+            for x in range(width):
+                img[y][x] = cWHITE.rgb
+                l_name = parse['image'][y][x]
+                if l_name == label.name:
+                    l_color = palette[l_name]
+                    if l_color == label.color:
+                        img[y][x] = l_color                
+        img = np.float32(img)
+        img = BGR2RGB(img)
+        return img
+    except:
+        raise ImageParseError
+    return None
