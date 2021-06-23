@@ -2,36 +2,21 @@
 # '#'-s will be used for comments, the parser will ignore theese lines.
 # First line contains the image size.
 # The first lines will contain the labels: name & color
-# Then the pixel values for each label 1's and 0's.
-# The label parser will put the full image together, replacing the 1's
-# and 0's with the corresponding color information.
-# The labels will be stored in dictionaries in order of definition.
-# Here id 0 is label 'red' and id 1 is label 'green'.
-# The following lines are only an example of how I think such file
-# should look like, things are subject to change.
+# Then the combined pixel values of the image after the i tag
+# Do not name a label 0, as 0 is the default filler value with cWHITE
+# This format makes the label file not much larger, than a reguler image size (if any larger)
 
-dim 10 10
-L 'red' 255 0 0
-L 'green' 0 255 0
-0:
-1 1 1 1 1 1 1 1 1 1
-1 0 1 1 0 1 0 1 0 0
-0 0 0 0 0 0 0 0 0 0
-0 0 0 0 0 0 0 0 0 0
-0 0 0 0 0 0 0 1 1 0
-0 0 0 0 0 0 0 1 1 0
+D 10 10
+L 'r' 255 0 0
+L 'g' 0 255 0
+I
+r r r r r r r r r r
+0 r r r r r r 0 r r
+0 0 r r r r 0 0 0 0
 0 0 0 0 0 0 0 0 0 0
 0 0 0 0 0 0 0 0 0 0
 0 0 0 0 0 0 0 0 0 0
 0 0 0 0 0 0 0 0 0 0
-1:
-0 0 0 0 0 0 0 0 0 0
-0 0 0 0 0 0 0 0 1 0
-0 0 0 0 0 0 0 1 0 0
-0 0 0 0 0 0 1 0 0 0
-0 0 0 0 0 1 0 0 0 0
-0 0 0 0 1 0 0 0 0 0
-0 0 0 0 1 0 0 0 0 0
-0 0 0 0 1 0 0 0 0 0
-0 0 0 0 0 0 0 0 0 0
-0 0 0 0 0 0 0 0 0 0
+g 0 0 0 0 g 0 0 0 0
+g g 0 0 0 g g 0 0 0
+g g 0 0 g g g g 0 0

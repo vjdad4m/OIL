@@ -1,6 +1,8 @@
 import OIL.tools as tools
 from OIL.color import Color, cGREEN
 from OIL.label import Label
+from OIL.parser import LoadOIL
+from OIL.errors import *
 
 """ Image Tools """
 
@@ -16,7 +18,8 @@ i = tools.Resize(i, 512, 512)
 print('Size after resize:', i.shape)
 
 # Display the image using opencv2
-tools.ShowImage(i)
+# tools.ShowImage(i)
+# TODO: fix ShowImage() -> Program should continue running, not wait
 
 """ Colors """
 
@@ -34,3 +37,13 @@ lane = Label('lane', red)
 print(lane)
 print(lane.name)
 print(lane.color)
+
+""" Parser """
+
+try:
+    LoadOIL('asd')
+except OILFileLoadError:
+    print('File Load error') # This should happen, as 'asd' does not exist
+
+data = LoadOIL('./images/labels/image.oil')
+print(data)
