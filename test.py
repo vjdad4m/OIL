@@ -4,9 +4,11 @@ from OIL.label import Label, PaletteToLabel
 from OIL.parser import *
 from OIL.errors import *
 
+
+import OIL
 """ Image Tools """
 
-# Image from @vajdaad4m on instagram
+# Image from @vajdad4m on instagram
 # i = tools.OpenImage('images/image.jpg')
 
 # Color conversion
@@ -76,5 +78,5 @@ print(palette)
 labels = PaletteToLabel(palette)
 l = labels[2] # Extract only green
 data = ExtractSpecificLabel(parse_data, l)
-print(data)
+# print(data)
 tools.ShowImage(data)
